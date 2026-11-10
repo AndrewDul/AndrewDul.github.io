@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Andrzej Dul — software engineering, AI systems and robotics portfolio." />
+    <meta name="theme-color" content="#171334" />
+    <title>Andrzej Dul — Portfolio</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+    <script src="assets/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="space-dust" aria-hidden="true"></div>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="#home" aria-label="Andrzej Dul, home">
+        <span class="brand-orbit" aria-hidden="true"></span>
+        <span>Andrzej Dul</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span class="sr-only">Open navigation</span>
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Primary navigation" data-nav>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button class="theme-toggle" type="button" aria-label="Switch colour theme" aria-pressed="false" data-theme-toggle>
+        <span class="theme-icon" aria-hidden="true">☾</span>
+        <span class="theme-label">Dark</span>
+      </button>
+    </header>
+
+    <main id="main-content">
+      <section class="hero section" id="home" aria-labelledby="hero-title">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span class="pulse-dot" aria-hidden="true"></span> Building thoughtful software from Leicester, UK</p>
+          <h1 id="hero-title">Software, AI, and a little <em>cosmic curiosity.</em></h1>
+          <p class="hero-intro">I’m Andrzej, a software engineer interested in useful interfaces, local AI systems and carefully tested details.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">Explore projects <span aria-hidden="true">↘</span></a>
+            <a class="button button-quiet" href="#contact">Say hello <span aria-hidden="true">✦</span></a>
+          </div>
+          <ul class="skill-pills" aria-label="Areas of focus">
+            <li>Python</li><li>Kotlin</li><li>Web</li><li>AI systems</li><li>Robotics</li>
+          </ul>
+        </div>
+
+        <div class="hero-visual reveal" aria-label="A friendly robot floating in space" role="img">
+          <div class="orbit orbit-one" aria-hidden="true"></div>
+          <div class="orbit orbit-two" aria-hidden="true"></div>
+          <div class="planet planet-lilac" aria-hidden="true"></div>
+          <div class="planet planet-peach" aria-hidden="true"></div>
+          <div class="robot-wrap">
+            <div class="robot-antenna"><span></span></div>
+            <div class="robot-head">
+              <span class="robot-ear ear-left"></span>
+              <span class="robot-ear ear-right"></span>
+              <div class="robot-face"><span class="eye"></span><span class="eye"></span><span class="mouth"></span></div>
+            </div>
+            <div class="robot-neck"></div>
+            <div class="robot-body">
+              <span class="chest-light"></span>
+              <span class="robot-panel"></span>
+            </div>
+            <span class="robot-arm arm-left"></span><span class="robot-arm arm-right"></span>
+            <span class="robot-leg leg-left"></span><span class="robot-leg leg-right"></span>
+          </div>
+          <p class="visual-note"><span aria-hidden="true">✦</span> currently exploring the next useful thing</p>
+        </div>
+      </section>
+
+      <section class="section projects-section" id="projects" aria-labelledby="projects-title">
+        <div class="section-heading reveal">
+          <div>
+            <p class="section-kicker">Project constellation</p>
+            <h2 id="projects-title">Things I’ve made, am shaping, or am testing.</h2>
+          </div>
+          <p>Each card opens a working project page. They are designed to grow into fuller case studies.</p>
+        </div>
+
+        <div class="project-grid">
+          <a class="project-card project-card-featured reveal" href="projects/nexa.html" data-tilt>
+            <div class="card-art art-nexa" aria-hidden="true"><span class="mini-orbit"></span><span class="mini-core">N</span><span class="mini-moon"></span></div>
+            <div class="card-topline"><span>01 / AI &amp; robotics</span><span class="card-arrow">↗</span></div>
+            <h3>NeXa</h3>
+            <p>Personal, local-first AI system architecture for one person across their devices.</p>
+            <ul class="card-tags"><li>Python</li><li>Local AI</li><li>Raspberry Pi</li></ul>
+          </a>
+
+          <a class="project-card project-card-coffee reveal" href="projects/koffeecraft.html" data-tilt>
+            <div class="card-art art-coffee" aria-hidden="true"><span class="cup"></span><span class="steam steam-one"></span><span class="steam steam-two"></span></div>
+            <div class="card-topline"><span>02 / Android</span><span class="card-arrow">↗</span></div>
+            <h3>KoffeeCraft</h3>
+            <p>A role-based Android coffee shop application with customer and admin flows.</p>
+            <ul class="card-tags"><li>Kotlin</li><li>Room</li><li>Testing</li></ul>
+          </a>
+
+          <a class="project-card project-card-ddbn reveal" href="projects/ddbn.html" data-tilt>
+            <div class="card-art art-ddbn" aria-hidden="true"><span class="building building-one"></span><span class="building building-two"></span><span class="building building-three"></span><span class="signal"></span></div>
+            <div class="card-topline"><span>03 / Product foundation</span><span class="card-arrow">↗</span></div>
+            <h3>DDBN Platform</h3>
+            <p>A foundation-stage local business discovery and owner-workspace concept.</p>
+            <ul class="card-tags"><li>Next.js</li><li>TypeScript</li><li>Quality gates</li></ul>
+          </a>
+
+          <a class="project-card project-card-earth reveal" href="projects/beyond-earth.html" data-tilt>
+            <div class="card-art art-earth" aria-hidden="true"><span class="earth-globe"></span><span class="satellite"></span></div>
+            <div class="card-topline"><span>04 / Team engineering</span><span class="card-arrow">↗</span></div>
+            <h3>BeyondEarth</h3>
+            <p>An order-management component for a futuristic travel-booking team project.</p>
+            <ul class="card-tags"><li>C#</li><li>ASP.NET</li><li>SQL Server</li></ul>
+          </a>
+
+          <a class="project-card project-card-taskify reveal" href="projects/taskify.html" data-tilt>
+            <div class="card-art art-taskify" aria-hidden="true"><span class="task-line done"></span><span class="task-line"></span><span class="task-line"></span><span class="task-dot"></span></div>
+            <div class="card-topline"><span>05 / Web interface</span><span class="card-arrow">↗</span></div>
+            <h3>Taskify</h3>
+            <p>A responsive React to-do list for categories, tasks, search and completion.</p>
+            <ul class="card-tags"><li>React</li><li>CSS</li><li>Responsive</li></ul>
+          </a>
+        </div>
+      </section>
+
+      <section class="section about-section" id="about" aria-labelledby="about-title">
+        <div class="about-orb reveal" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="about-copy reveal">
+          <p class="section-kicker">About me</p>
+          <h2 id="about-title">I like systems that make sense when you look closely.</h2>
+          <p>I’m a First Class BSc (Hons) Computer Software Engineering graduate and am studying for an MSc in Artificial Intelligence at De Montfort University. My work ranges from Android and web interfaces to local AI, cameras, sensors and Raspberry Pi projects.</p>
+          <p>My approach is practical: test small parts, trace the real cause, and leave the next person a clear path through the work.</p>
+          <div class="fact-grid" aria-label="Selected background">
+            <div><strong>First Class</strong><span>BSc (Hons) Software Engineering</span></div>
+            <div><strong>In progress</strong><span>MSc Artificial Intelligence</span></div>
+            <div><strong>Hands-on</strong><span>Software, testing, AI and hardware</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section blog-section" id="blog" aria-labelledby="blog-title">
+        <div class="section-heading reveal">
+          <div>
+            <p class="section-kicker">Build log</p>
+            <h2 id="blog-title">Notes from the workbench.</h2>
+          </div>
+          <p>This is a starting point for future writing about projects, debugging and design decisions.</p>
+        </div>
+        <div class="log-list">
+          <article class="log-item reveal"><span class="log-index">01</span><div><p class="log-label">Coming soon</p><h3>What a local-first AI system needs before it can grow</h3></div><span class="log-status">Idea</span></article>
+          <article class="log-item reveal"><span class="log-index">02</span><div><p class="log-label">Coming soon</p><h3>From a broken migration to a safer Android data change</h3></div><span class="log-status">Idea</span></article>
+          <article class="log-item reveal"><span class="log-index">03</span><div><p class="log-label">Coming soon</p><h3>Keeping project documentation useful, not just present</h3></div><span class="log-status">Idea</span></article>
+        </div>
+      </section>
+
+      <section class="section assistant-section" aria-labelledby="assistant-title">
+        <div class="assistant-shell reveal">
+          <div class="assistant-intro">
+            <p class="section-kicker">Portfolio companion</p>
+            <h2 id="assistant-title">Ask the future portfolio assistant.</h2>
+            <p>This is an honest UI prototype. It has no AI backend yet, does not read private repositories, and does not send your question anywhere.</p>
+            <ul class="prototype-points"><li>Public project knowledge will be curated first.</li><li>Real answers need an approved backend.</li><li>Private data will remain opt-in.</li></ul>
+          </div>
+          <div class="chat-card" aria-label="AI assistant prototype">
+            <div class="chat-header"><span class="chat-orb" aria-hidden="true">✦</span><div><strong>Andrzej’s portfolio assistant</strong><small><span class="status-dot"></span> Prototype — backend not connected</small></div></div>
+            <div class="chat-messages" data-chat-messages aria-live="polite">
+              <p class="assistant-message">Hi! This interface is ready for a future assistant. For now, I can only show a safe prototype response.</p>
+            </div>
+            <form class="chat-form" data-chat-form>
+              <label class="sr-only" for="assistant-question">Ask about a project</label>
+              <input id="assistant-question" name="question" placeholder="Ask about NeXa, KoffeeCraft…" autocomplete="off" />
+              <button class="icon-button" type="submit" aria-label="Send prototype question">↑</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="contact-intro reveal">
+          <p class="section-kicker">Contact</p>
+          <h2 id="contact-title">Have a project, role or idea in mind?</h2>
+          <p>Send a message below and it will be delivered to my inbox. You can also reach me directly at <a href="mailto:dulandrew.dev@gmail.com">dulandrew.dev@gmail.com</a>.</p>
+          <a class="button button-primary" href="mailto:dulandrew.dev@gmail.com?subject=Hello%20Andrzej">Email Andrzej <span aria-hidden="true">↗</span></a>
+        </div>
+        <form class="contact-form reveal" action="https://formsubmit.co/dulandrew.dev@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New message from Andrzej Dul portfolio" />
+          <input type="hidden" name="_template" value="table" />
+          <input class="form-honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <div class="form-row"><label for="name">Your name</label><input id="name" name="name" required /></div>
+          <div class="form-row"><label for="email">Your email</label><input id="email" type="email" name="email" required /></div>
+          <div class="form-row"><label for="message">Message</label><textarea id="message" name="message" rows="4" required></textarea></div>
+          <button class="button button-quiet" type="submit">Send message <span aria-hidden="true">↗</span></button>
+          <p class="form-note">Messages are delivered through FormSubmit. On first use, I need to confirm a recipient activation email before delivery begins. FormSubmit will receive the information entered here to deliver it.</p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand" href="#home"><span class="brand-orbit" aria-hidden="true"></span><span>Andrzej Dul</span></a>
+      <p>Designed with warmth, rounded corners and a little orbiting wonder.</p>
+      <a href="https://github.com/AndrewDul" target="_blank" rel="noreferrer">GitHub ↗</a>
+    </footer>
+  </body>
+</html>
