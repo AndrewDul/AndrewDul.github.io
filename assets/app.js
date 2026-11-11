@@ -34,7 +34,11 @@
     const names = ['Andrzej', 'Andrew'];
     const reelCount = 7;
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const finalReelDuration = 1050 + (reelCount - 1) * 190;
+    const quietPeriod = 5000;
     let nextName = 0;
+    let cycleTimer;
+    let isAnimating = false;
 
     const makeLetters = (target, index) => {
       const alphabet = target === target.toUpperCase() ? 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' : 'abcdefghijklmnopqrstuvwxyz';
@@ -79,10 +83,23 @@
       showName(names[0], false);
     } else {
       const runCycle = () => {
+        if (isAnimating) return;
+        isAnimating = true;
+        cycleTimer = undefined;
         showName(names[nextName], true);
         nextName = (nextName + 1) % names.length;
-        window.setTimeout(runCycle, 4800);
+        window.setTimeout(() => {
+          isAnimating = false;
+          cycleTimer = window.setTimeout(runCycle, quietPeriod);
+        }, finalReelDuration);
       };
+      const triggerCycle = () => {
+        if (cycleTimer) window.clearTimeout(cycleTimer);
+        cycleTimer = undefined;
+        if (!isAnimating) runCycle();
+      };
+      nameReels.parentElement?.addEventListener('pointerenter', triggerCycle);
+      nameReels.parentElement?.addEventListener('focusin', triggerCycle);
       window.setTimeout(runCycle, 300);
     }
   }
@@ -124,8 +141,23 @@
     card.addEventListener('pointerleave', () => { card.style.transform = ''; });
   });
 
+  const assistantDock = document.querySelector('[data-assistant-dock]');
+  const assistantToggle = document.querySelector('[data-assistant-toggle]');
+  const assistantClose = document.querySelector('[data-assistant-close]');
   const chatForm = document.querySelector('[data-chat-form]');
   const messages = document.querySelector('[data-chat-messages]');
+  const setAssistantOpen = (open) => {
+    if (!assistantDock || !assistantToggle) return;
+    assistantDock.classList.toggle('is-open', open);
+    assistantToggle.setAttribute('aria-expanded', String(open));
+    assistantToggle.querySelector('.sr-only').textContent = open ? 'Close portfolio assistant' : 'Open portfolio assistant';
+    if (open) window.setTimeout(() => chatForm?.elements.question.focus(), 180);
+  };
+  assistantToggle?.addEventListener('click', () => setAssistantOpen(!assistantDock.classList.contains('is-open')));
+  assistantClose?.addEventListener('click', () => setAssistantOpen(false));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') setAssistantOpen(false);
+  });
   chatForm?.addEventListener('submit', (event) => {
     event.preventDefault();
     const input = chatForm.elements.question;
@@ -136,7 +168,7 @@
     userMessage.textContent = question;
     const reply = document.createElement('p');
     reply.className = 'assistant-message';
-    reply.textContent = 'Prototype response: no AI model or project data source is connected yet, so this question was not sent or answered. The finished version will need a reviewed knowledge base and an approved backend.';
+    reply.textContent = 'Prototype response: no AI model or project knowledge base is connected yet, so this question was not sent anywhere. The finished version will need a reviewed knowledge base and an approved backend.';
     messages.append(userMessage, reply);
     input.value = '';
     messages.scrollTop = messages.scrollHeight;

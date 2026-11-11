@@ -175,3 +175,48 @@ html.name-reels-ready .brand-name-reels { display: inline-flex; }
 
 @media (max-width: 820px) { .site-header { justify-content: flex-start; }.nav-toggle { margin-left: .05rem; }.theme-toggle { margin-left: auto; }.project-card-color, .project-card-save { grid-column: span 6; min-height: 19rem; } }
 @media (max-width: 540px) { .site-header { gap: .35rem; }.letter-reel { width: .72em; flex-basis: .72em; }.project-card-color, .project-card-save { grid-column: auto; min-height: 19rem; } }
+
+@media (min-width: 821px) { .site-header { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); }.site-header .brand { justify-self: start; }.site-header .site-nav { justify-self: center; }.site-header .theme-toggle { justify-self: end; } }
+@media (max-width: 820px) { .site-header { display: flex; } }
+
+/* Hero copy and technology groups. */
+.hero h1 { max-width: 12ch; }
+.skill-showcase { display: grid; gap: .75rem; max-width: 46rem; padding: 1rem 0 0; margin-top: 1.65rem; border-top: 1px solid var(--border); }
+.skill-group { display: grid; grid-template-columns: 9.4rem 1fr; gap: .75rem; align-items: start; padding-top: .75rem; border-top: 1px solid var(--border); }
+.skill-group:first-child { padding-top: 0; border-top: 0; }
+.skill-group p { margin: .18rem 0 0; color: var(--ink-soft); font-size: .69rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.skill-group ul { display: flex; flex-wrap: wrap; gap: .38rem; padding: 0; margin: 0; list-style: none; }
+.skill-group li { padding: .25rem .52rem; border: 1px solid var(--border); border-radius: 999px; background: color-mix(in srgb, var(--surface-solid) 70%, transparent); color: var(--ink-soft); font-size: .73rem; font-weight: 700; }
+.skill-group-primary li { border-color: color-mix(in srgb, var(--purple) 34%, var(--border)); background: color-mix(in srgb, var(--purple) 13%, var(--surface-solid)); color: var(--purple-deep); }
+
+/* Orbiting moons in the About section. */
+.about-orb::after { animation: about-orbit-ring 20s linear infinite; }
+.about-orb span { top: 50%; left: 50%; right: auto; bottom: auto; }
+.about-orb span:nth-child(1) { top: 50%; left: 50%; animation: about-moon-gold 9s linear infinite; }
+.about-orb span:nth-child(2) { top: 50%; left: 50%; animation: about-moon-mint 12s linear infinite reverse; }
+.about-orb span:nth-child(3) { top: 50%; left: 50%; animation: about-moon-paper 7s linear infinite; }
+@keyframes about-orbit-ring { to { transform: rotate(336deg); } }
+@keyframes about-moon-gold { from { transform: rotate(-24deg) translateX(10.8rem) rotate(24deg); } to { transform: rotate(336deg) translateX(10.8rem) rotate(-336deg); } }
+@keyframes about-moon-mint { from { transform: rotate(128deg) translateX(11.7rem) rotate(-128deg); } to { transform: rotate(488deg) translateX(11.7rem) rotate(-488deg); } }
+@keyframes about-moon-paper { from { transform: rotate(218deg) translateX(8.7rem) rotate(-218deg); } to { transform: rotate(578deg) translateX(8.7rem) rotate(-578deg); } }
+
+/* Floating portfolio assistant. It is intentionally a UI-only prototype. */
+.assistant-dock { position: fixed; right: 1.2rem; bottom: 1.2rem; z-index: 30; display: flex; align-items: flex-end; gap: .7rem; max-width: calc(100vw - 2rem); }
+.assistant-launcher { order: 1; display: grid; width: 4.65rem; height: 4.65rem; flex: 0 0 auto; place-items: center; padding: 0; border: 1px solid color-mix(in srgb, var(--purple) 42%, var(--border)); border-radius: 1.45rem; background: linear-gradient(145deg, color-mix(in srgb, var(--purple) 26%, var(--surface-solid)), var(--surface-solid)); box-shadow: 0 12px 32px rgba(39, 26, 71, .24); transition: transform .28s ease, box-shadow .28s ease; }
+.assistant-launcher:hover, .assistant-launcher:focus-visible { transform: translateY(-4px) rotate(-2deg); box-shadow: 0 18px 36px rgba(39, 26, 71, .3); outline: 3px solid color-mix(in srgb, var(--purple) 34%, transparent); outline-offset: 3px; }
+.dock-robot { position: relative; display: block; width: 3.15rem; height: 3rem; }
+.dock-antenna { position: absolute; top: .05rem; left: 50%; width: 2px; height: .48rem; background: var(--purple-deep); }.dock-antenna::after { content: ""; position: absolute; top: -.23rem; left: -.18rem; width: .38rem; height: .38rem; border-radius: 50%; background: var(--peach); }
+.dock-head { position: absolute; top: .45rem; left: .25rem; width: 2.65rem; height: 1.85rem; border: 2px solid var(--purple-deep); border-radius: .85rem .85rem .72rem .72rem; background: var(--surface-solid); }
+.dock-eye { position: absolute; top: .58rem; width: .32rem; height: .45rem; border-radius: 50%; background: var(--purple-deep); animation: dock-blink 6s ease-in-out infinite; }.dock-eye-left { left: .66rem; }.dock-eye-right { right: .66rem; }
+.dock-smile { position: absolute; left: 50%; bottom: .28rem; width: .66rem; height: .32rem; border-bottom: 2px solid var(--pink); border-radius: 0 0 1rem 1rem; transform: translateX(-50%); animation: dock-smile 6s ease-in-out infinite; }
+.dock-arm { position: absolute; top: 2.22rem; width: .5rem; height: .95rem; border: 2px solid var(--purple-deep); border-radius: .6rem; background: var(--peach); transform-origin: top center; }.dock-arm-left { left: .58rem; transform: rotate(25deg); animation: dock-wave 6s ease-in-out infinite; }.dock-arm-right { right: .58rem; transform: rotate(-25deg); }
+@keyframes dock-blink { 0%, 58%, 64%, 100% { transform: scaleY(1); } 61% { transform: scaleY(.12); } }
+@keyframes dock-smile { 0%, 58%, 100% { width: .66rem; height: .32rem; } 66%, 76% { width: .9rem; height: .46rem; } }
+@keyframes dock-wave { 0%, 58%, 100% { transform: rotate(25deg); } 64%, 70%, 76% { transform: rotate(68deg); } 67%, 73% { transform: rotate(35deg); } }
+.assistant-popover { order: 2; display: flex; width: 0; min-height: 0; max-width: 0; flex-direction: column; overflow: hidden; visibility: hidden; opacity: 0; border: 1px solid var(--border); border-radius: 1.35rem; background: var(--surface-solid); box-shadow: var(--shadow); pointer-events: none; transform: translateX(-.7rem) scale(.96); transform-origin: bottom right; transition: width .32s ease, min-height .32s ease, max-width .32s ease, opacity .22s ease, transform .32s ease, visibility .32s; }
+.assistant-dock.is-open .assistant-popover { width: min(22rem, calc(100vw - 7.5rem)); min-height: 21.5rem; max-width: min(22rem, calc(100vw - 7.5rem)); visibility: visible; opacity: 1; pointer-events: auto; transform: translateX(0) scale(1); }
+.assistant-popover .chat-header { flex: 0 0 auto; padding: .8rem; }.assistant-popover .chat-messages { min-height: 13.5rem; max-height: 17rem; overflow-y: auto; }.assistant-popover .chat-form { margin-top: auto; }.assistant-popover .assistant-message, .assistant-popover .user-message { font-size: .78rem; }
+.assistant-close { display: grid; width: 1.8rem; height: 1.8rem; margin-left: auto; place-items: center; padding: 0; border: 1px solid var(--border); border-radius: 50%; background: transparent; color: var(--ink-soft); font-size: 1.12rem; line-height: 1; }.assistant-close:hover, .assistant-close:focus-visible { background: color-mix(in srgb, var(--purple) 12%, transparent); color: var(--ink); outline: none; }
+
+@media (max-width: 820px) { .skill-group { grid-template-columns: 1fr; gap: .45rem; }.skill-group p { margin-top: 0; }.about-orb span:nth-child(1) { animation-duration: 8s; }.about-orb span:nth-child(2) { animation-duration: 10s; } }
+@media (max-width: 540px) { .skill-showcase { margin-top: 1.35rem; }.assistant-dock { right: .75rem; bottom: .75rem; }.assistant-dock.is-open .assistant-popover { position: absolute; right: 0; bottom: 5.2rem; width: min(21rem, calc(100vw - 1.5rem)); min-height: 20.5rem; max-width: min(21rem, calc(100vw - 1.5rem)); }.assistant-popover .chat-messages { min-height: 12.3rem; } }

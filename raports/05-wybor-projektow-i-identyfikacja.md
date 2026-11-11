@@ -28,3 +28,5 @@ Po akceptacji wyglądu można opublikować tę aktualizację w repozytorium oraz
 ## Doprecyzowanie animacji imienia
 
 Pierwsza wersja zmieniała całe słowo naraz. Została zastąpiona animacją siedmiu niezależnych „bębnów” literowych: wszystkie przewijają litery z góry na dół, a potem zatrzymują się kolejno, układając najpierw `Andrzej`, a następnie `Andrew`. Przy krótszym wariancie ostatni bęben znika dopiero po zakończeniu przewijania, dzięki czemu nazwisko naturalnie przesuwa się bliżej imienia.
+
+Po zakończeniu każdego przebiegu animacja ma pięć sekund przerwy; można ją też od razu uruchomić, najeżdżając na imię. Na większych ekranach nawigacja i przełącznik motywu są umieszczone w stałych kolumnach nagłówka, więc zmiana długości imienia nie przesuwa pozostałych elementów.

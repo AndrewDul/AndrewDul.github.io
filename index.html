@@ -45,15 +45,17 @@
       <section class="hero section" id="home" aria-labelledby="hero-title">
         <div class="hero-copy reveal">
           <p class="eyebrow"><span class="pulse-dot" aria-hidden="true"></span> Building thoughtful software from Leicester, UK</p>
-          <h1 id="hero-title">Software, AI.</h1>
-          <p class="hero-intro">I’m Andrzej, a software engineer interested in useful interfaces, local AI systems and carefully tested details.</p>
+          <h1 id="hero-title">Software engineering,<br /><em>AI &amp; robotics.</em></h1>
+          <p class="hero-intro">I’m Andrzej, a software engineer who enjoys building practical web, mobile and AI projects. I like taking a messy problem, understanding how it works, and turning it into something clear, useful and easy to use.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="#projects">Explore projects <span aria-hidden="true">↘</span></a>
             <a class="button button-quiet" href="#contact">Say hello <span aria-hidden="true">✦</span></a>
           </div>
-          <ul class="skill-pills" aria-label="Areas of focus">
-            <li>Python</li><li>Kotlin</li><li>Web</li><li>AI systems</li><li>Robotics</li>
-          </ul>
+          <div class="skill-showcase" aria-label="Technologies used by Andrzej">
+            <div class="skill-group skill-group-primary"><p>Often used</p><ul><li>Python</li><li>Java</li></ul></div>
+            <div class="skill-group"><p>Languages</p><ul><li>Kotlin</li><li>C</li><li>C++</li><li>C#</li><li>Scala</li><li>SQL</li><li>PHP</li><li>JavaScript</li><li>TypeScript</li><li>HTML</li><li>CSS</li></ul></div>
+            <div class="skill-group"><p>Libraries, frameworks &amp; data</p><ul><li>React</li><li>PyTorch</li><li>NumPy</li><li>OpenCV</li><li>Android</li><li>.NET</li><li>ASP.NET</li><li>Room</li><li>SQLite</li><li>MongoDB</li><li>Godot</li></ul></div>
+          </div>
         </div>
 
         <div class="hero-visual reveal" aria-label="A friendly robot floating in space" role="img">
@@ -136,10 +138,10 @@
         <div class="about-orb reveal" aria-hidden="true"><span></span><span></span><span></span></div>
         <div class="about-copy reveal">
           <p class="section-kicker">About me</p>
-          <h2 id="about-title">I like systems that make sense when you look closely.</h2>
-          <p>I’m a First Class BSc (Hons) Computer Software Engineering graduate and am studying for an MSc in Artificial Intelligence at De Montfort University. My work ranges from Android and web interfaces to local AI, cameras, sensors and Raspberry Pi projects.</p>
-          <p>My approach is practical: test small parts, trace the real cause, and leave the next person a clear path through the work.</p>
-          <p>I’m also interested in mathematics, astronomy and physics. This is a side of my work and learning that I’ll develop here over time.</p>
+          <h2 id="about-title">I like understanding how things work — then making them work better.</h2>
+          <p>I’m a First Class Computer Software Engineering graduate and an MSc Artificial Intelligence student at De Montfort University. I build across web, Android, data and AI projects, and I enjoy the point where an idea becomes a working system.</p>
+          <p>My way of working is practical and curious. I break a problem into smaller parts, test the important details, and keep looking until I understand the real cause — not just a quick workaround. I learn best by building, checking the result and improving it step by step.</p>
+          <p>Outside code, I’m interested in nature, mathematics, physics, astronomy and robotics. I like asking how the world works, from patterns inside a system to the bigger questions above us. That curiosity is a big part of why I enjoy building technology.</p>
           <div class="fact-grid" aria-label="Selected background">
             <div><strong>First Class</strong><span>BSc (Hons) Software Engineering</span></div>
             <div><strong>In progress</strong><span>MSc Artificial Intelligence</span></div>
@@ -163,28 +165,6 @@
         </div>
       </section>
 
-      <section class="section assistant-section" aria-labelledby="assistant-title">
-        <div class="assistant-shell reveal">
-          <div class="assistant-intro">
-            <p class="section-kicker">Portfolio companion</p>
-            <h2 id="assistant-title">Ask the future portfolio assistant.</h2>
-            <p>This is an honest UI prototype. It has no AI backend yet, does not read private repositories, and does not send your question anywhere.</p>
-            <ul class="prototype-points"><li>Public project knowledge will be curated first.</li><li>Real answers need an approved backend.</li><li>Private data will remain opt-in.</li></ul>
-          </div>
-          <div class="chat-card" aria-label="AI assistant prototype">
-            <div class="chat-header"><span class="chat-orb" aria-hidden="true">✦</span><div><strong>Andrzej’s portfolio assistant</strong><small><span class="status-dot"></span> Prototype — backend not connected</small></div></div>
-            <div class="chat-messages" data-chat-messages aria-live="polite">
-              <p class="assistant-message">Hi! This interface is ready for a future assistant. For now, I can only show a safe prototype response.</p>
-            </div>
-            <form class="chat-form" data-chat-form>
-              <label class="sr-only" for="assistant-question">Ask about a project</label>
-              <input id="assistant-question" name="question" placeholder="Ask about KoffeeCraft, the games or Taskify…" autocomplete="off" />
-              <button class="icon-button" type="submit" aria-label="Send prototype question">↑</button>
-            </form>
-          </div>
-        </div>
-      </section>
-
       <section class="section contact-section" id="contact" aria-labelledby="contact-title">
         <div class="contact-intro reveal">
           <p class="section-kicker">Contact</p>
@@ -204,6 +184,22 @@
         </form>
       </section>
     </main>
+
+    <aside class="assistant-dock" data-assistant-dock aria-label="Portfolio assistant prototype">
+      <button class="assistant-launcher" type="button" aria-expanded="false" aria-controls="portfolio-assistant" data-assistant-toggle>
+        <span class="dock-robot" aria-hidden="true"><span class="dock-antenna"></span><span class="dock-head"><span class="dock-eye dock-eye-left"></span><span class="dock-eye dock-eye-right"></span><span class="dock-smile"></span></span><span class="dock-arm dock-arm-left"></span><span class="dock-arm dock-arm-right"></span></span>
+        <span class="sr-only">Open portfolio assistant</span>
+      </button>
+      <section class="assistant-popover" id="portfolio-assistant" aria-label="Portfolio assistant chat">
+        <div class="chat-header"><span class="chat-orb" aria-hidden="true">✦</span><div><strong>Portfolio helper</strong><small><span class="status-dot"></span> Prototype — no backend connected</small></div><button class="assistant-close" type="button" aria-label="Close portfolio assistant" data-assistant-close>×</button></div>
+        <div class="chat-messages" data-chat-messages aria-live="polite"><p class="assistant-message">Hi! I’m the portfolio assistant interface. A real AI backend is not connected yet, so messages stay on this page.</p></div>
+        <form class="chat-form" data-chat-form>
+          <label class="sr-only" for="assistant-question">Ask about a project</label>
+          <input id="assistant-question" name="question" placeholder="Ask about a project…" autocomplete="off" />
+          <button class="icon-button" type="submit" aria-label="Send prototype question">↑</button>
+        </form>
+      </section>
+    </aside>
 
     <footer class="site-footer">
       <a class="brand" href="#home"><span class="brand-orbit" aria-hidden="true"></span><span>Andrzej Dul</span></a>
