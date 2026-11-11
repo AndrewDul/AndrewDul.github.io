@@ -227,17 +227,7 @@ html.name-reels-ready .brand-name-reels { display: inline-flex; }
 @media (max-width: 820px) { .skill-group { grid-template-columns: 1fr; gap: .45rem; }.skill-group p { margin-top: 0; }.about-orb span:nth-child(1) { animation-duration: 8s; }.about-orb span:nth-child(2) { animation-duration: 10s; } }
 @media (max-width: 540px) { .skill-showcase { margin-top: 1.35rem; }.assistant-dock { right: .75rem; bottom: .75rem; }.assistant-dock.is-open .assistant-popover { position: absolute; right: 0; bottom: 5.2rem; width: min(21rem, calc(100vw - 1.5rem)); min-height: 20.5rem; max-width: min(21rem, calc(100vw - 1.5rem)); }.assistant-popover .chat-messages { min-height: 12.3rem; } }
 
-/* Project gallery: full-width desktop pages and touch-first mobile cards. */
-.project-groups{display:grid;gap:4.5rem}
-.project-group{display:grid;gap:1.35rem}
-.project-group-heading{display:grid;grid-template-columns:minmax(0,1fr) minmax(16rem,28rem);gap:1.5rem;align-items:end;padding-bottom:1.1rem;border-bottom:1px solid var(--border)}
-.project-group-heading .section-kicker{margin:0 0 .35rem}
-.project-group-heading h3{margin:0;font-size:clamp(1.55rem,2.8vw,2.2rem);letter-spacing:-.04em}
-.project-group-heading>p{max-width:34rem;margin:0;color:var(--ink-soft);font-size:.93rem}
-.project-grid--spotlight .project-card{grid-column:span 12;min-height:23rem}
-.project-card-earth{grid-column:span 7;min-height:22rem}
-.project-card-taskify{grid-column:span 5;min-height:22rem}
-.project-card-game{grid-column:span 6;min-height:22rem}
+/* Project gallery: a stable five-card desktop mosaic and full-size mobile slides. */
 .project-carousel { position: relative; }
 .project-carousel-controls { display: none; align-items: center; justify-content: space-between; gap: 1rem; margin: 0 0 .85rem; }
 .project-carousel.has-multiple-slides .project-carousel-controls { display: flex; }
@@ -250,12 +240,16 @@ html.name-reels-ready .brand-name-reels { display: inline-flex; }
 .project-carousel-track { display: flex; width: 100%; }
 .project-carousel-slide { min-width: 0; flex: 0 0 100%; }
 .project-carousel-slide.is-solo .project-card { grid-column: span 12; min-height: 25rem; }
+.project-carousel-slide.card-count-5 .project-card-featured { grid-column: span 7; min-height: 25rem; }
+.project-carousel-slide.card-count-5 .project-card-warehouse { grid-column: span 5; min-height: 25rem; }
+.project-carousel-slide.card-count-5 .project-card-coffee,
+.project-carousel-slide.card-count-5 .project-card-standard { grid-column: span 4; min-height: 19rem; }
+.project-carousel-slide.card-count-4 .project-card { grid-column: span 6; min-height: 22rem; }
+.project-carousel-slide.card-count-3 .project-card { grid-column: span 4; min-height: 22rem; }
+.project-carousel-slide.card-count-2 .project-card { grid-column: span 6; min-height: 25rem; }
+.project-carousel-slide.card-count-1 .project-card { grid-column: span 12; min-height: 25rem; }
 
 @media (max-width: 820px) {
-  .project-groups{gap:3.5rem}
-  .project-group-heading{grid-template-columns:1fr;gap:.5rem}
-  .project-grid--spotlight .project-card{grid-column:span 12;min-height:22rem}
-  .project-card-earth,.project-card-taskify,.project-card-game{grid-column:span 6;min-height:19rem}
   .project-carousel.has-multiple-slides .project-carousel-controls { display: flex; }
   .project-carousel-viewport { margin-right: -1rem; padding: 0 1rem .9rem 0; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
   .project-carousel-viewport::-webkit-scrollbar { display: none; }
@@ -272,8 +266,6 @@ html.name-reels-ready .brand-name-reels { display: inline-flex; }
 }
 
 @media (max-width: 540px) {
-  .project-groups{gap:3rem}
-  .project-card-earth,.project-card-taskify,.project-card-game,.project-grid--spotlight .project-card{grid-column:auto;min-height:19rem}
   .project-carousel-slide { flex-basis: calc(100% - 1.25rem); }
 }
 

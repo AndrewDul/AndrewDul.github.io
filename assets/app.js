@@ -158,7 +158,7 @@
       for (let start = 0; start < cards.length; start += cardsPerSlide) {
         const cardsForSlide = cards.slice(start, start + cardsPerSlide);
         const slide = document.createElement('div');
-        slide.className = 'project-carousel-slide project-grid';
+        slide.className = `project-carousel-slide project-grid card-count-${cardsForSlide.length}`;
         slide.classList.toggle('is-solo', cardsForSlide.length === 1);
         slide.append(...cardsForSlide);
         track.append(slide);
