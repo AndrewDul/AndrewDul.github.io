@@ -8,3 +8,5 @@ Ten folder dokumentuje pierwszą wersję portfolio. Raporty opisują wykonane el
 4. `04-plan-zmian.md`
 5. `05-wybor-projektow-i-identyfikacja.md`
 6. `06-tekst-technologie-i-asystent.md`
+7. `07-karuzela-projektow.md`
+8. `08-technologie-i-profile.md`

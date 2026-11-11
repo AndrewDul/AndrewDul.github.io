@@ -53,8 +53,10 @@
           </div>
           <div class="skill-showcase" aria-label="Technologies used by Andrzej">
             <div class="skill-group skill-group-primary"><p>Often used</p><ul><li>Python</li><li>Java</li></ul></div>
-            <div class="skill-group"><p>Languages</p><ul><li>Kotlin</li><li>C</li><li>C++</li><li>C#</li><li>Scala</li><li>SQL</li><li>PHP</li><li>JavaScript</li><li>TypeScript</li><li>HTML</li><li>CSS</li></ul></div>
-            <div class="skill-group"><p>Libraries, frameworks &amp; data</p><ul><li>React</li><li>PyTorch</li><li>NumPy</li><li>OpenCV</li><li>Android</li><li>.NET</li><li>ASP.NET</li><li>Room</li><li>SQLite</li><li>MongoDB</li><li>Godot</li></ul></div>
+            <div class="skill-group"><p>Languages &amp; markup</p><ul><li>Kotlin</li><li>C</li><li>C++</li><li>C#</li><li>Scala</li><li>SQL</li><li>PHP</li><li>JavaScript</li><li>TypeScript</li><li>HTML</li><li>CSS</li><li>XML</li></ul></div>
+            <div class="skill-group"><p>Frameworks, platforms &amp; data</p><ul><li>React</li><li>PyTorch</li><li>NumPy</li><li>OpenCV</li><li>Android</li><li>.NET Framework</li><li>ASP.NET Web Forms</li><li>Bootstrap 5</li><li>Material Components</li><li>Room</li><li>SQLite</li><li>MongoDB</li><li>Gradle</li><li>Godot</li></ul></div>
+            <div class="skill-group"><p>Development environments</p><ul><li>Visual Studio</li><li>IntelliJ IDEA</li><li>Eclipse</li><li>Arduino IDE</li><li>Google Colab</li><li>Jupyter Notebook</li><li>Android Studio</li></ul></div>
+            <div class="skill-group"><p>Ways of working</p><ul><li>Agile</li><li>DevOps</li></ul></div>
           </div>
         </div>
 
@@ -91,7 +93,17 @@
           <p>Each card opens a project page with a clear description of the work, technologies and current state.</p>
         </div>
 
-        <div class="project-grid">
+        <div class="project-carousel" data-project-carousel>
+          <div class="project-carousel-controls" aria-label="Project gallery controls">
+            <p class="project-carousel-status" data-carousel-status aria-live="polite"></p>
+            <div>
+              <button class="carousel-button" type="button" data-carousel-prev aria-label="Show previous projects">←</button>
+              <button class="carousel-button" type="button" data-carousel-next aria-label="Show next projects">→</button>
+            </div>
+          </div>
+          <div class="project-carousel-viewport" data-carousel-viewport>
+            <div class="project-carousel-track" data-project-track>
+              <div class="project-grid" data-project-grid>
           <a class="project-card project-card-featured reveal" href="projects/koffeecraft.html" data-tilt>
             <div class="card-art art-coffee" aria-hidden="true"><span class="cup"></span><span class="steam steam-one"></span><span class="steam steam-two"></span></div>
             <div class="card-topline"><span>01 / Android</span><span class="card-arrow">↗</span></div>
@@ -130,8 +142,11 @@
             <h3>Save The Man</h3>
             <p>A responsive Hangman game with categories, scoring, sound effects and multiplayer turns.</p>
             <ul class="card-tags"><li>JavaScript</li><li>HTML</li><li>Responsive</li></ul>
-          </a>
+              </a>
+            </div>
+          </div>
         </div>
+      </div>
       </section>
 
       <section class="section about-section" id="about" aria-labelledby="about-title">
@@ -203,8 +218,16 @@
 
     <footer class="site-footer">
       <a class="brand" href="#home"><span class="brand-orbit" aria-hidden="true"></span><span>Andrzej Dul</span></a>
-      <p>Designed with warmth, rounded corners and a little orbiting wonder.</p>
-      <a href="https://github.com/AndrewDul" target="_blank" rel="noreferrer">GitHub ↗</a>
+      <div class="footer-links" aria-label="Andrzej's profiles">
+        <a class="social-link" href="https://www.linkedin.com/in/andrzej-dul-05b53b1b9/" target="_blank" rel="noreferrer" aria-label="Andrzej Dul on LinkedIn">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.03-1.85-3.03-1.85 0-2.13 1.45-2.13 2.94v5.66H9.35V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.26 2.37 4.26 5.46v6.29ZM5.34 7.41a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14Zm1.78 13.04H3.55V8.98h3.57v11.47Z"/></svg>
+          <span>LinkedIn</span>
+        </a>
+        <a class="social-link" href="https://github.com/AndrewDul" target="_blank" rel="noreferrer" aria-label="Andrzej Dul on GitHub">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.48 2 2 6.58 2 12.23c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.88-2.78.62-3.37-1.21-3.37-1.21-.45-1.19-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.35 1.12 2.92.86.09-.67.35-1.12.64-1.38-2.22-.26-4.56-1.15-4.56-5.11 0-1.13.4-2.06 1.06-2.79-.11-.27-.46-1.32.1-2.75 0 0 .87-.29 2.75 1.07A9.36 9.36 0 0 1 12 4.78c.85 0 1.7.12 2.5.34 1.89-1.36 2.75-1.07 2.75-1.07.56 1.43.21 2.48.1 2.75.66.73 1.06 1.66 1.06 2.79 0 3.97-2.35 4.85-4.58 5.1.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.24 10.24 0 0 0 22 12.23C22 6.58 17.52 2 12 2Z" clip-rule="evenodd"/></svg>
+          <span>GitHub</span>
+        </a>
+      </div>
     </footer>
   </body>
 </html>

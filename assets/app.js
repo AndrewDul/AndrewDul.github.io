@@ -120,6 +120,82 @@
     });
   }
 
+  const projectCarousel = document.querySelector('[data-project-carousel]');
+  if (projectCarousel) {
+    const viewport = projectCarousel.querySelector('[data-carousel-viewport]');
+    const track = projectCarousel.querySelector('[data-project-track]');
+    const originalGrid = projectCarousel.querySelector('[data-project-grid]');
+    const previousButton = projectCarousel.querySelector('[data-carousel-prev]');
+    const nextButton = projectCarousel.querySelector('[data-carousel-next]');
+    const status = projectCarousel.querySelector('[data-carousel-status]');
+    const mobileLayout = window.matchMedia('(max-width: 820px)');
+    const cards = originalGrid ? [...originalGrid.children] : [];
+    let slides = [];
+    let activeSlide = 0;
+    let scrollFrame;
+
+    const updateControls = () => {
+      const hasMultipleSlides = slides.length > 1;
+      projectCarousel.classList.toggle('has-multiple-slides', hasMultipleSlides);
+      previousButton.disabled = !hasMultipleSlides || activeSlide === 0;
+      nextButton.disabled = !hasMultipleSlides || activeSlide === slides.length - 1;
+      status.textContent = hasMultipleSlides ? `${activeSlide + 1} / ${slides.length}` : '';
+    };
+
+    const goToSlide = (index, behavior = 'smooth') => {
+      if (!slides.length) return;
+      activeSlide = Math.max(0, Math.min(index, slides.length - 1));
+      viewport.style.scrollBehavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : behavior;
+      viewport.scrollLeft = slides[activeSlide].offsetLeft;
+      updateControls();
+    };
+
+    const buildSlides = () => {
+      const cardsPerSlide = mobileLayout.matches ? 1 : 5;
+      activeSlide = 0;
+      track.replaceChildren();
+
+      for (let start = 0; start < cards.length; start += cardsPerSlide) {
+        const slide = document.createElement('div');
+        slide.className = 'project-carousel-slide project-grid';
+        slide.append(...cards.slice(start, start + cardsPerSlide));
+        track.append(slide);
+      }
+
+      slides = [...track.children];
+      viewport.scrollLeft = 0;
+      updateControls();
+    };
+
+    previousButton.addEventListener('click', () => goToSlide(activeSlide - 1));
+    nextButton.addEventListener('click', () => goToSlide(activeSlide + 1));
+    viewport.addEventListener('scroll', () => {
+      window.cancelAnimationFrame(scrollFrame);
+      scrollFrame = window.requestAnimationFrame(() => {
+        let closestSlide = 0;
+        let closestDistance = Number.POSITIVE_INFINITY;
+        slides.forEach((slide, index) => {
+          const distance = Math.abs(viewport.scrollLeft - slide.offsetLeft);
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            closestSlide = index;
+          }
+        });
+        if (closestSlide !== activeSlide) {
+          activeSlide = closestSlide;
+          updateControls();
+        }
+      });
+    }, { passive: true });
+
+    if (mobileLayout.addEventListener) {
+      mobileLayout.addEventListener('change', buildSlides);
+    } else {
+      mobileLayout.addListener(buildSlides);
+    }
+    buildSlides();
+  }
+
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
