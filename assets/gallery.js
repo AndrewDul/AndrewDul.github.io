@@ -16,7 +16,7 @@
     const render=()=>{const photo=photos[index].querySelector('img');image.src=photo.src;image.alt=photo.alt;caption.textContent=photos[index].closest('figure').querySelector('figcaption')?.textContent||photo.alt;};
     const close=()=>{modal.hidden=true;document.body.style.overflow='';image.removeAttribute('src');document.removeEventListener('keydown',key);lastFocus?.focus();};
     const step=d=>{index=(index+d+photos.length)%photos.length;render();};
-    const key=e=>{if(e.key==='Escape')close();else if(e.key==='ArrowRight')step(1);else if(e.key==='ArrowLeft')step(-1);else if(e.key==='Tab'){const ctrls=[modal.querySelector('.gallery-close'),modal.querySelector('.gallery-prev'),modal.querySelector('.gallery-next')];let n=ctrls.indexOf(document.activeElement);if(n<0)n=0;e.preventDefault();ctrls[(n+(e.shiftKey?-1:1)+ctrls.length)%ctrls.length].focus();}};
+    const key=e=>{if(e.key==='Escape'){e.preventDefault();close();}else if(e.key==='ArrowRight'){e.preventDefault();step(1);}else if(e.key==='ArrowLeft'){e.preventDefault();step(-1);}else if(e.key==='Tab'){const ctrls=[modal.querySelector('.gallery-close'),modal.querySelector('.gallery-prev'),modal.querySelector('.gallery-next')];let n=ctrls.indexOf(document.activeElement);if(n<0)n=0;e.preventDefault();ctrls[(n+(e.shiftKey?-1:1)+ctrls.length)%ctrls.length].focus();}};
     photos.forEach((b,i)=>b.addEventListener('click',()=>{lastFocus=document.activeElement;index=i;render();modal.hidden=false;document.body.style.overflow='hidden';modal.querySelector('.gallery-close').focus();document.addEventListener('keydown',key);}));
     modal.querySelector('.gallery-close').addEventListener('click',close);
     modal.querySelector('.gallery-prev').addEventListener('click',()=>step(-1));

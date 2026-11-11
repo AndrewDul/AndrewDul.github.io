@@ -17,7 +17,8 @@
 .case-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1.6rem 0 0}
 .case-gallery figure{margin:0;min-width:0}
 .case-gallery button{display:block;width:100%;padding:0;border:1px solid var(--border);border-radius:1rem;overflow:hidden;background:var(--surface-solid);cursor:zoom-in}
-.case-gallery img{display:block;width:100%;height:210px;object-fit:cover;transition:transform .22s ease}
+.case-gallery img{display:block;width:100%;aspect-ratio:3/4;height:auto;object-fit:cover;transition:transform .22s ease}
+.case-gallery--screens img{aspect-ratio:9/16;object-fit:contain;background:color-mix(in srgb,var(--surface-solid) 88%,#000)}
 .case-gallery button:hover img,.case-gallery button:focus-visible img{transform:scale(1.035)}
 .case-gallery button:focus-visible{outline:3px solid var(--purple);outline-offset:3px}
 .case-gallery figcaption{font-size:.8rem;color:var(--ink-soft);margin:.45rem .15rem}
@@ -30,6 +31,6 @@
 .gallery-modal .gallery-prev{left:1rem;top:50%}
 .gallery-modal .gallery-next{right:1rem;top:50%}
 .gallery-modal .gallery-close:focus-visible,.gallery-modal .gallery-prev:focus-visible,.gallery-modal .gallery-next:focus-visible{outline:3px solid #c6b5ff}
-@media(max-width:700px){.case-challenge-grid{grid-template-columns:1fr}.case-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.case-gallery img{height:175px}.case-step{grid-template-columns:1fr}.gallery-modal{padding:3rem .7rem 2rem}.gallery-modal .gallery-prev{left:.4rem}.gallery-modal .gallery-next{right:.4rem}.gallery-modal img{max-width:calc(100% - 4rem)}}
-@media(max-width:420px){.case-gallery{grid-template-columns:1fr}.case-gallery img{height:245px}}
+@media(max-width:700px){.case-challenge-grid{grid-template-columns:1fr}.case-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.case-step{grid-template-columns:1fr}.gallery-modal{padding:3rem .7rem 2rem}.gallery-modal .gallery-prev{left:.4rem}.gallery-modal .gallery-next{right:.4rem}.gallery-modal img{max-width:calc(100% - 4rem)}}
+@media(max-width:420px){.case-gallery{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.case-gallery img{transition:none}}
