@@ -29,6 +29,64 @@
     navToggle?.setAttribute('aria-expanded', 'false');
   }));
 
+  const nameReels = document.querySelector('[data-name-reels]');
+  if (nameReels) {
+    const names = ['Andrzej', 'Andrew'];
+    const reelCount = 7;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let nextName = 0;
+
+    const makeLetters = (target, index) => {
+      const alphabet = target === target.toUpperCase() ? 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' : 'abcdefghijklmnopqrstuvwxyz';
+      const spins = 8 + index;
+      return Array.from({ length: spins }, (_, step) => alphabet[(index * 7 + step * 5) % alphabet.length]).concat(target);
+    };
+
+    const showName = (name, animate) => {
+      const targetLetters = [...name, ...Array(reelCount - name.length).fill('')];
+      nameReels.replaceChildren();
+      targetLetters.forEach((target, index) => {
+        const reel = document.createElement('span');
+        reel.className = 'letter-reel';
+        const track = document.createElement('span');
+        track.className = 'reel-track';
+        const letters = animate ? makeLetters(target || ' ', index) : [target || ' '];
+        letters.forEach((letter) => {
+          const cell = document.createElement('span');
+          cell.className = 'reel-cell';
+          cell.textContent = letter;
+          track.append(cell);
+        });
+        reel.append(track);
+        nameReels.append(reel);
+
+        if (!animate) {
+          if (!target) reel.classList.add('is-empty');
+          return;
+        }
+
+        const duration = 1050 + index * 190;
+        track.style.transition = `transform ${duration}ms cubic-bezier(.16, .84, .24, 1)`;
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          track.style.transform = `translateY(-${(letters.length - 1) * 1.28}em)`;
+        }));
+        if (!target) window.setTimeout(() => reel.classList.add('is-empty'), duration);
+      });
+    };
+
+    document.documentElement.classList.add('name-reels-ready');
+    if (reducedMotion) {
+      showName(names[0], false);
+    } else {
+      const runCycle = () => {
+        showName(names[nextName], true);
+        nextName = (nextName + 1) % names.length;
+        window.setTimeout(runCycle, 4800);
+      };
+      window.setTimeout(runCycle, 300);
+    }
+  }
+
   const dust = document.querySelector('.space-dust');
   const starColours = ['var(--purple)', 'var(--pink)', 'var(--peach)', 'var(--mint)'];
   if (dust && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {

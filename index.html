@@ -16,7 +16,11 @@
     <header class="site-header" data-header>
       <a class="brand" href="#home" aria-label="Andrzej Dul, home">
         <span class="brand-orbit" aria-hidden="true"></span>
-        <span>Andrzej Dul</span>
+        <span class="brand-name" aria-hidden="true">
+          <span class="brand-name-fallback">Andrzej</span>
+          <span class="brand-name-reels" data-name-reels></span>
+          <span class="brand-surname">Dul</span>
+        </span>
       </a>
 
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
@@ -41,7 +45,7 @@
       <section class="hero section" id="home" aria-labelledby="hero-title">
         <div class="hero-copy reveal">
           <p class="eyebrow"><span class="pulse-dot" aria-hidden="true"></span> Building thoughtful software from Leicester, UK</p>
-          <h1 id="hero-title">Software, AI, and a little <em>cosmic curiosity.</em></h1>
+          <h1 id="hero-title">Software, AI.</h1>
           <p class="hero-intro">I’m Andrzej, a software engineer interested in useful interfaces, local AI systems and carefully tested details.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="#projects">Explore projects <span aria-hidden="true">↘</span></a>
@@ -80,39 +84,23 @@
         <div class="section-heading reveal">
           <div>
             <p class="section-kicker">Project constellation</p>
-            <h2 id="projects-title">Things I’ve made, am shaping, or am testing.</h2>
+            <h2 id="projects-title">A selection of software I’ve built.</h2>
           </div>
-          <p>Each card opens a working project page. They are designed to grow into fuller case studies.</p>
+          <p>Each card opens a project page with a clear description of the work, technologies and current state.</p>
         </div>
 
         <div class="project-grid">
-          <a class="project-card project-card-featured reveal" href="projects/nexa.html" data-tilt>
-            <div class="card-art art-nexa" aria-hidden="true"><span class="mini-orbit"></span><span class="mini-core">N</span><span class="mini-moon"></span></div>
-            <div class="card-topline"><span>01 / AI &amp; robotics</span><span class="card-arrow">↗</span></div>
-            <h3>NeXa</h3>
-            <p>Personal, local-first AI system architecture for one person across their devices.</p>
-            <ul class="card-tags"><li>Python</li><li>Local AI</li><li>Raspberry Pi</li></ul>
-          </a>
-
-          <a class="project-card project-card-coffee reveal" href="projects/koffeecraft.html" data-tilt>
+          <a class="project-card project-card-featured reveal" href="projects/koffeecraft.html" data-tilt>
             <div class="card-art art-coffee" aria-hidden="true"><span class="cup"></span><span class="steam steam-one"></span><span class="steam steam-two"></span></div>
-            <div class="card-topline"><span>02 / Android</span><span class="card-arrow">↗</span></div>
+            <div class="card-topline"><span>01 / Android</span><span class="card-arrow">↗</span></div>
             <h3>KoffeeCraft</h3>
             <p>A role-based Android coffee shop application with customer and admin flows.</p>
             <ul class="card-tags"><li>Kotlin</li><li>Room</li><li>Testing</li></ul>
           </a>
 
-          <a class="project-card project-card-ddbn reveal" href="projects/ddbn.html" data-tilt>
-            <div class="card-art art-ddbn" aria-hidden="true"><span class="building building-one"></span><span class="building building-two"></span><span class="building building-three"></span><span class="signal"></span></div>
-            <div class="card-topline"><span>03 / Product foundation</span><span class="card-arrow">↗</span></div>
-            <h3>DDBN Platform</h3>
-            <p>A foundation-stage local business discovery and owner-workspace concept.</p>
-            <ul class="card-tags"><li>Next.js</li><li>TypeScript</li><li>Quality gates</li></ul>
-          </a>
-
-          <a class="project-card project-card-earth reveal" href="projects/beyond-earth.html" data-tilt>
+          <a class="project-card project-card-coffee reveal" href="projects/beyond-earth.html" data-tilt>
             <div class="card-art art-earth" aria-hidden="true"><span class="earth-globe"></span><span class="satellite"></span></div>
-            <div class="card-topline"><span>04 / Team engineering</span><span class="card-arrow">↗</span></div>
+            <div class="card-topline"><span>02 / Team engineering</span><span class="card-arrow">↗</span></div>
             <h3>BeyondEarth</h3>
             <p>An order-management component for a futuristic travel-booking team project.</p>
             <ul class="card-tags"><li>C#</li><li>ASP.NET</li><li>SQL Server</li></ul>
@@ -120,10 +108,26 @@
 
           <a class="project-card project-card-taskify reveal" href="projects/taskify.html" data-tilt>
             <div class="card-art art-taskify" aria-hidden="true"><span class="task-line done"></span><span class="task-line"></span><span class="task-line"></span><span class="task-dot"></span></div>
-            <div class="card-topline"><span>05 / Web interface</span><span class="card-arrow">↗</span></div>
+            <div class="card-topline"><span>03 / Web interface</span><span class="card-arrow">↗</span></div>
             <h3>Taskify</h3>
             <p>A responsive React to-do list for categories, tasks, search and completion.</p>
             <ul class="card-tags"><li>React</li><li>CSS</li><li>Responsive</li></ul>
+          </a>
+
+          <a class="project-card project-card-color reveal" href="projects/color-clash.html" data-tilt>
+            <div class="card-art art-color" aria-hidden="true"><span class="color-tile tile-one"></span><span class="color-tile tile-two"></span><span class="color-tile tile-three"></span><span class="color-tile tile-four"></span><span class="combo-ring"></span></div>
+            <div class="card-topline"><span>04 / Browser game</span><span class="card-arrow">↗</span></div>
+            <h3>Color Clash</h3>
+            <p>A colourful tile-matching game with combos, power-ups, experience and high scores.</p>
+            <ul class="card-tags"><li>JavaScript</li><li>CSS</li><li>Game logic</li></ul>
+          </a>
+
+          <a class="project-card project-card-save reveal" href="projects/save-the-man.html" data-tilt>
+            <div class="card-art art-save" aria-hidden="true"><span class="gallows"></span><span class="hanging-figure"></span><span class="word-dash dash-one"></span><span class="word-dash dash-two"></span><span class="word-dash dash-three"></span></div>
+            <div class="card-topline"><span>05 / Browser game</span><span class="card-arrow">↗</span></div>
+            <h3>Save The Man</h3>
+            <p>A responsive Hangman game with categories, scoring, sound effects and multiplayer turns.</p>
+            <ul class="card-tags"><li>JavaScript</li><li>HTML</li><li>Responsive</li></ul>
           </a>
         </div>
       </section>
@@ -135,6 +139,7 @@
           <h2 id="about-title">I like systems that make sense when you look closely.</h2>
           <p>I’m a First Class BSc (Hons) Computer Software Engineering graduate and am studying for an MSc in Artificial Intelligence at De Montfort University. My work ranges from Android and web interfaces to local AI, cameras, sensors and Raspberry Pi projects.</p>
           <p>My approach is practical: test small parts, trace the real cause, and leave the next person a clear path through the work.</p>
+          <p>I’m also interested in mathematics, astronomy and physics. This is a side of my work and learning that I’ll develop here over time.</p>
           <div class="fact-grid" aria-label="Selected background">
             <div><strong>First Class</strong><span>BSc (Hons) Software Engineering</span></div>
             <div><strong>In progress</strong><span>MSc Artificial Intelligence</span></div>
@@ -173,7 +178,7 @@
             </div>
             <form class="chat-form" data-chat-form>
               <label class="sr-only" for="assistant-question">Ask about a project</label>
-              <input id="assistant-question" name="question" placeholder="Ask about NeXa, KoffeeCraft…" autocomplete="off" />
+              <input id="assistant-question" name="question" placeholder="Ask about KoffeeCraft, the games or Taskify…" autocomplete="off" />
               <button class="icon-button" type="submit" aria-label="Send prototype question">↑</button>
             </form>
           </div>
