@@ -19,6 +19,7 @@
 .case-gallery button{display:block;width:100%;padding:0;border:1px solid var(--border);border-radius:1rem;overflow:hidden;background:var(--surface-solid);cursor:zoom-in}
 .case-gallery img{display:block;width:100%;aspect-ratio:3/4;height:auto;object-fit:cover;transition:transform .22s ease}
 .case-gallery--screens img{aspect-ratio:9/16;object-fit:contain;background:color-mix(in srgb,var(--surface-solid) 88%,#000)}
+.case-gallery--landscape img{aspect-ratio:16/9;object-fit:cover}
 .case-gallery button:hover img,.case-gallery button:focus-visible img{transform:scale(1.035)}
 .case-gallery button:focus-visible{outline:3px solid var(--purple);outline-offset:3px}
 .case-gallery figcaption{font-size:.8rem;color:var(--ink-soft);margin:.45rem .15rem}
