@@ -10,3 +10,4 @@ Ten folder dokumentuje pierwszą wersję portfolio. Raporty opisują wykonane el
 6. `06-tekst-technologie-i-asystent.md`
 7. `07-karuzela-projektow.md`
 8. `08-technologie-i-profile.md`
+9. `09-warehouse-barcode-studio.md`

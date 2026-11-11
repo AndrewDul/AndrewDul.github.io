@@ -1,6 +1,15 @@
 const projects = {
+  'warehouse-barcode-studio': {
+    number: '01 / Local-first web tool', accent: '#8dbda8', title: 'Warehouse Barcode Studio',
+    summary: 'A privacy-first browser tool for creating printable barcode and QR labels for warehouse work.',
+    context: 'Warehouse labels often need to be created quickly from a short list or a larger document. This tool keeps the full workflow in the browser, so label values are not sent to an API, stored in application logs or saved in local storage.',
+    status: 'A live GitHub Pages version is available. It generates Code 128, Code 39, Code 93 and QR labels, validates values for the selected format, imports common office and text files, and supports export or browser printing with Zebra ZD220-ready profiles.',
+    focus: ['Format-aware Code 128, Code 39, Code 93 and QR validation', 'Bulk label creation from text, spreadsheets and documents', 'PNG, SVG, PDF and ZIP export paths', 'Browser print layouts for warehouse, shelf-edge, small-item and custom labels'],
+    technologies: ['React', 'TypeScript', 'Vite', 'JsBarcode', 'qrcode', 'SheetJS', 'Mammoth', 'jsPDF', 'JSZip', 'Vitest'],
+    repo: 'https://github.com/AndrewDul/Warehouse-Barcode-Studio', live: 'https://andrewdul.github.io/Warehouse-Barcode-Studio/'
+  },
   koffeecraft: {
-    number: '01 / Android application', accent: '#df8c82', title: 'KoffeeCraft',
+    number: '02 / Android application', accent: '#df8c82', title: 'KoffeeCraft',
     summary: 'A local-first Android coffee shop application with customer and admin experiences.',
     context: 'The app brings mobile ordering and internal management together in one role-based Android project.',
     status: 'The project includes customer flows for browsing, customising and ordering products, as well as an admin area for menu, account, order, campaign and feedback tools.',
@@ -9,7 +18,7 @@ const projects = {
     repo: 'https://github.com/AndrewDul/koffeecraft-ctec3703'
   },
   'beyond-earth': {
-    number: '02 / Team engineering', accent: '#5c9bd0', title: 'BeyondEarth',
+    number: '03 / Team engineering', accent: '#5c9bd0', title: 'BeyondEarth',
     summary: 'Order management for a futuristic travel-booking team project at De Montfort University.',
     context: 'BeyondEarth simulates Mars, Moon and deep-sea experiences. Andrzej’s component was the order-management system in a four-student team project.',
     status: 'Educational project. The order component includes order business logic, SQL integration, Web Forms for listing, entry, statistics and delete confirmation, filtering and unit tests.',
@@ -18,7 +27,7 @@ const projects = {
     repo: 'https://github.com/AndrewDul/BeyondEarth-TeamProject'
   },
   taskify: {
-    number: '03 / Web interface', accent: '#d78db3', title: 'Taskify',
+    number: '04 / Web interface', accent: '#d78db3', title: 'Taskify',
     summary: 'A responsive React to-do list for categories, tasks, search and completion.',
     context: 'Taskify focuses on giving people a clear way to organise tasks by category in a responsive interface.',
     status: 'The app supports creating, renaming and deleting categories, adding and completing tasks, category search and carousel navigation. Its roadmap identifies persistent storage and collaboration as future enhancements.',
@@ -27,7 +36,7 @@ const projects = {
     repo: 'https://github.com/AndrewDul/Taskify', live: 'https://andrewdul.github.io/Taskify/'
   },
   'color-clash': {
-    number: '04 / Browser game', accent: '#ea8b6e', title: 'Color Clash',
+    number: '05 / Browser game', accent: '#ea8b6e', title: 'Color Clash',
     summary: 'A fast-paced tile-matching browser game built around colour, combos and progression.',
     context: 'Players swap matching tiles to earn points and coins, then unlock power-ups and abilities as their experience grows.',
     status: 'A live demo is available. The published game includes dynamic tile generation, controlled scoring, combo multipliers, achievements, power-ups and high-score tracking.',
@@ -36,7 +45,7 @@ const projects = {
     repo: 'https://github.com/AndrewDul/Color-Clash', live: 'https://andrewdul.github.io/Color-Clash/'
   },
   'save-the-man': {
-    number: '05 / Browser game', accent: '#8e7ce8', title: 'Save The Man',
+    number: '06 / Browser game', accent: '#8e7ce8', title: 'Save The Man',
     summary: 'A modern, responsive take on Hangman with categories, scoring and alternating turns.',
     context: 'Players guess a hidden word by letter or as a whole word before the gallows reaches its final state.',
     status: 'A live demo is available. The game has category selection, real-time scoring, sound effects, responsive layouts, random word selection and two-player turn handling.',
