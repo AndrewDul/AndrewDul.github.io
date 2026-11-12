@@ -223,6 +223,8 @@
   const assistantClose = document.querySelector('[data-assistant-close]');
   const chatForm = document.querySelector('[data-chat-form]');
   const messages = document.querySelector('[data-chat-messages]');
+  const assistantEndpoint = 'https://andrew-portfolio-assistant.dulandrew-dev.workers.dev/chat';
+  const chatHistory = [];
   const setAssistantOpen = (open) => {
     if (!assistantDock || !assistantToggle) return;
     assistantDock.classList.toggle('is-open', open);
@@ -235,7 +237,7 @@
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') setAssistantOpen(false);
   });
-  chatForm?.addEventListener('submit', (event) => {
+  chatForm?.addEventListener('submit', async (event) => {
     event.preventDefault();
     const input = chatForm.elements.question;
     const question = input.value.trim();
@@ -243,12 +245,45 @@
     const userMessage = document.createElement('p');
     userMessage.className = 'user-message';
     userMessage.textContent = question;
-    const reply = document.createElement('p');
-    reply.className = 'assistant-message';
-    reply.textContent = 'Prototype response: no AI model or project knowledge base is connected yet, so this question was not sent anywhere. The finished version will need a reviewed knowledge base and an approved backend.';
-    messages.append(userMessage, reply);
+    messages.append(userMessage);
     input.value = '';
     messages.scrollTop = messages.scrollHeight;
+    const submit = chatForm.querySelector('button[type="submit"]');
+    input.disabled = true;
+    submit.disabled = true;
+    const pending = document.createElement('p');
+    pending.className = 'assistant-message is-pending';
+    pending.textContent = 'Thinking…';
+    messages.append(pending);
+    messages.scrollTop = messages.scrollHeight;
+    try {
+      const requestHistory = chatHistory.slice(-6);
+      const response = await fetch(assistantEndpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: question, history: requestHistory }),
+      });
+      const data = await response.json();
+      if (!response.ok || !data.answer) throw new Error(data.error || 'Unable to answer right now.');
+      const answer = data.answer.split(/\bVisitor:/i)[0].trim();
+      pending.textContent = answer;
+      if (Array.isArray(data.sources) && data.sources.length) {
+        const source = document.createElement('small');
+        source.className = 'chat-sources';
+        source.textContent = `Based on: ${data.sources.join(' · ')}`;
+        messages.append(source);
+      }
+      chatHistory.push({ role: 'user', content: question }, { role: 'assistant', content: answer });
+      if (chatHistory.length > 12) chatHistory.splice(0, chatHistory.length - 12);
+    } catch (error) {
+      pending.textContent = 'I’m temporarily unavailable. Please try again in a moment, or explore the project cards and GitHub links.';
+    } finally {
+      pending.classList.remove('is-pending');
+      input.disabled = false;
+      submit.disabled = false;
+      input.focus();
+      messages.scrollTop = messages.scrollHeight;
+    }
   });
 
 })();
