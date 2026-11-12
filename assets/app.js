@@ -270,12 +270,6 @@
         .split(/\b(visitor|interviewer|recruiter)\s*:/i)[0]
         .trim();
       pending.textContent = answer;
-      if (Array.isArray(data.sources) && data.sources.length) {
-        const source = document.createElement('small');
-        source.className = 'chat-sources';
-        source.textContent = `Based on: ${data.sources.join(' · ')}`;
-        messages.append(source);
-      }
       chatHistory.push({ role: 'user', content: question }, { role: 'assistant', content: answer });
       if (chatHistory.length > 12) chatHistory.splice(0, chatHistory.length - 12);
     } catch (error) {
