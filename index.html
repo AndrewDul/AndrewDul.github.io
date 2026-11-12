@@ -6,7 +6,7 @@
     <meta name="description" content="Andrzej Dul — software engineering, AI systems and robotics portfolio." />
     <meta name="theme-color" content="#171334" />
     <title>Andrzej Dul — Portfolio</title>
-    <link rel="stylesheet" href="assets/styles.css?v=20261111-3" />
+    <link rel="stylesheet" href="assets/styles.css?v=20261112-1" />
     <script src="assets/app.js" defer></script>
   </head>
   <body>
@@ -93,7 +93,13 @@
           <p>Each card opens a project page with a clear description of the work, technologies and current state.</p>
         </div>
 
-        <div class="project-carousel" data-project-carousel>
+        <section class="project-category" aria-labelledby="ai-projects-title">
+          <div class="project-category-heading">
+            <p class="section-kicker">AI &amp; robotics</p>
+            <h3 id="ai-projects-title">Intelligent systems</h3>
+            <p>Local AI, hardware integration and iterative engineering.</p>
+          </div>
+          <div class="project-carousel" data-project-carousel>
           <div class="project-carousel-controls" aria-label="Project gallery controls">
             <p class="project-carousel-status" data-carousel-status aria-live="polite"></p>
             <div><button class="carousel-button" type="button" data-carousel-prev aria-label="Show previous projects">←</button><button class="carousel-button" type="button" data-carousel-next aria-label="Show next projects">→</button></div>
@@ -108,6 +114,26 @@
             <p>One evolving AI and robotics ecosystem: local voice assistant, physical RoVe platform and next-generation architecture.</p>
             <ul class="card-tags"><li>Python</li><li>Local AI</li><li>Raspberry Pi</li><li>Robotics</li></ul>
                 </a>
+              </div>
+            </div>
+          </div>
+          </div>
+        </section>
+
+        <section class="project-category" aria-labelledby="software-projects-title">
+          <div class="project-category-heading">
+            <p class="section-kicker">Software &amp; apps</p>
+            <h3 id="software-projects-title">Tools people can use</h3>
+            <p>Web, Android and database-backed applications with clear user workflows.</p>
+          </div>
+          <div class="project-carousel" data-project-carousel>
+            <div class="project-carousel-controls" aria-label="Software projects gallery controls">
+              <p class="project-carousel-status" data-carousel-status aria-live="polite"></p>
+              <div><button class="carousel-button" type="button" data-carousel-prev aria-label="Show previous software projects">←</button><button class="carousel-button" type="button" data-carousel-next aria-label="Show next software projects">→</button></div>
+            </div>
+            <div class="project-carousel-viewport" data-carousel-viewport>
+              <div class="project-carousel-track" data-project-track>
+                <div class="project-grid" data-project-grid>
                 <a class="project-card project-card-warehouse reveal" href="projects/warehouse-barcode-studio.html" data-tilt>
             <div class="card-art art-warehouse" aria-hidden="true"><span class="barcode-sheet"><span class="barcode-lines"></span><span class="barcode-code">WB-128</span></span><span class="barcode-scan"></span></div>
             <div class="card-topline"><span>01 / Web tool</span><span class="card-arrow">↗</span></div>
@@ -139,6 +165,26 @@
             <p>A responsive React to-do list for categories, tasks, search and completion.</p>
             <ul class="card-tags"><li>React</li><li>CSS</li><li>Responsive</li></ul>
                 </a>
+              </div>
+            </div>
+          </div>
+          </div>
+        </section>
+
+        <section class="project-category" aria-labelledby="games-projects-title">
+          <div class="project-category-heading">
+            <p class="section-kicker">Games</p>
+            <h3 id="games-projects-title">Time for a break</h3>
+            <p>Take a moment to play: colourful browser games built around feedback, progression and responsive play.</p>
+          </div>
+          <div class="project-carousel" data-project-carousel>
+            <div class="project-carousel-controls" aria-label="Games gallery controls">
+              <p class="project-carousel-status" data-carousel-status aria-live="polite"></p>
+              <div><button class="carousel-button" type="button" data-carousel-prev aria-label="Show previous games">←</button><button class="carousel-button" type="button" data-carousel-next aria-label="Show next games">→</button></div>
+            </div>
+            <div class="project-carousel-viewport" data-carousel-viewport>
+              <div class="project-carousel-track" data-project-track>
+                <div class="project-grid" data-project-grid>
                 <a class="project-card project-card-game reveal" href="projects/color-clash.html" data-tilt>
             <div class="card-art art-color" aria-hidden="true"><span class="color-tile tile-one"></span><span class="color-tile tile-two"></span><span class="color-tile tile-three"></span><span class="color-tile tile-four"></span><span class="combo-ring"></span></div>
             <div class="card-topline"><span>06 / Browser game</span><span class="card-arrow">↗</span></div>
@@ -157,8 +203,8 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
+          </div>
+        </section>
       </section>
 
       <section class="section about-section" id="about" aria-labelledby="about-title">

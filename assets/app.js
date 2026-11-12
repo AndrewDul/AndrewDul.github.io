@@ -120,8 +120,7 @@
     });
   }
 
-  const projectCarousel = document.querySelector('[data-project-carousel]');
-  if (projectCarousel) {
+  document.querySelectorAll('[data-project-carousel]').forEach((projectCarousel) => {
     const viewport = projectCarousel.querySelector('[data-carousel-viewport]');
     const track = projectCarousel.querySelector('[data-project-track]');
     const originalGrid = projectCarousel.querySelector('[data-project-grid]');
@@ -151,7 +150,7 @@
     };
 
     const buildSlides = () => {
-      const cardsPerSlide = mobileLayout.matches ? 1 : 5;
+      const cardsPerSlide = mobileLayout.matches ? 1 : 6;
       activeSlide = 0;
       track.replaceChildren();
 
@@ -196,7 +195,7 @@
       mobileLayout.addListener(buildSlides);
     }
     buildSlides();
-  }
+  });
 
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
