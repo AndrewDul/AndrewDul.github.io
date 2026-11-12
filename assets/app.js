@@ -265,7 +265,10 @@
       });
       const data = await response.json();
       if (!response.ok || !data.answer) throw new Error(data.error || 'Unable to answer right now.');
-      const answer = data.answer.split(/\bVisitor:/i)[0].trim();
+      const answer = data.answer
+        .replace(/^\s*(answer|response)\s*:\s*/i, '')
+        .split(/\b(visitor|interviewer|recruiter)\s*:/i)[0]
+        .trim();
       pending.textContent = answer;
       if (Array.isArray(data.sources) && data.sources.length) {
         const source = document.createElement('small');
